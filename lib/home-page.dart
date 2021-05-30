@@ -15,6 +15,42 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+              currentAccountPicture: 
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+                    color: Colors.white,
+                    child: Image.network(
+                      'https://repositorio.powermidianet2.com.br/superlazzari/aplicacao/view/images/user1.png'
+                    ),
+                ),
+              ),
+              accountName: Text('Bem Vindo'),
+              accountEmail: Text('here')
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Inicio'),
+              subtitle: Text('Tela de inicio'),
+              onTap: (){
+                print('home');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Sair'),
+              subtitle: Text('Finalizar Sessão'),
+              onTap: (){
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text('Aplicativo Outro texto'),
         actions: [CustomSwitch()],
